@@ -1,40 +1,38 @@
-def quickSort(alist):
-   quickSortHelper(alist,0,len(alist)-1)
+def quickSort(a):
+   quickSorting(a,0,len(a)-1)
 
-def quickSortHelper(alist,first,last):
-   if first<last:
+def quickSorting(a,inicio,final):
+   if inicio<final:
 
-       splitpoint = partition(alist,first,last)
+       pp = particion(a,inicio,final) #pp(punto de particion)
 
-       quickSortHelper(alist,first,splitpoint-1)
-       quickSortHelper(alist,splitpoint+1,last)
+       quickSorting (a, inicio,pp-1)
+       quickSorting (a, pp+1, final)
 
+def particion(a , inicio, final):
+   pivote = a[inicio]
 
-def partition(alist,first,last):
-   pivotvalue = alist[first]
-
-   leftmark = first+1
-   rightmark = last
+   j = inicio+1
+   k = final
 
    done = False
    while not done:
 
-       while leftmark <= rightmark and alist[leftmark] <= pivotvalue:
-           leftmark = leftmark + 1
+       while j <= k and a[j] <= pivote:
+           j = j + 1
 
-       while alist[rightmark] >= pivotvalue and rightmark >= leftmark:
-           rightmark = rightmark -1
+       while a[k] >= pivote and k >= j:
+           k = k -1
 
-       if rightmark < leftmark:
+       if k < j:
            done = True
        else:
-           temp = alist[leftmark]
-           alist[leftmark] = alist[rightmark]
-           alist[rightmark] = temp
+           temp = a[j]
+           a[j] = a[k]
+           a[k] = temp
 
-   temp = alist[first]
-   alist[first] = alist[rightmark]
-   alist[rightmark] = temp
-
-
-   return rightmark
+   temp = a[inicio]
+   a[inicio] = a[k]
+   a[k] = temp
+   return k
+   

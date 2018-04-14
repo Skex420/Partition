@@ -15,8 +15,8 @@ def particion(a , inicio, final):
    j = inicio+1
    k = final
 
-   done = False
-   while not done:
+   endwhile = False
+   while not endwhile:
 
        while j <= k and a[j] <= pivote:
            j = j + 1
@@ -25,14 +25,13 @@ def particion(a , inicio, final):
            k = k -1
 
        if k < j:
-           done = True
+           endwhile = True #si K llega a sobre pasar J, siendo J el inicio.
        else:
            temp = a[j]
            a[j] = a[k]
            a[k] = temp
 
-   temp = a[inicio]
-   a[inicio] = a[k]
-   a[k] = temp
+   temp = a[inicio] #Variable temporal
+   a[inicio] = a[k] #al inicio se le asigna la posición K
+   a[k] = temp #Al final se le asigna la temporal, siendo el inicio.
    return k
-   

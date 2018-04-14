@@ -1,8 +1,5 @@
-**
-
 ## Proyecto Partition EIF-203-I-2018
 
-** 
  Estudiantes:
 
  - Kevin Artavia Arguedas
